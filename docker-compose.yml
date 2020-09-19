@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nats-streaming-server:
+    image: nats-streaming:0.18.0-alpine3.12
+    ports:
+      - 8222:8222
+      - 4222:4222
+    restart: always
+    command: -dir /data/nats-streaming/file -cluster_id test-crawler-cluster
+    volumes:
+        - /data/nats-streaming/file:/data/nats-streaming/file
